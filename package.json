@@ -1,15 +1,16 @@
 {
   "name": "jsx2str",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "homepage": "https://github.com/tylerlong/jsx2str",
   "scripts": {
-    "prepublishOnly": "tsc src/index.ts --outDir lib --declaration --target ESNext --moduleResolution NodeNext --module NodeNext",
+    "prepublishOnly": "bun packle",
     "test": "tsx src/demo.tsx",
     "postpublish": "rm -rf lib"
   },
   "devDependencies": {
+    "packle": "^0.2.6",
     "tsx": "^4.19.2"
   }
 }
