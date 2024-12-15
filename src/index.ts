@@ -2,6 +2,10 @@ export const options = {
   formatOutput: false, // Toggle for formatted output
 };
 
+function toKebabCase(key: string): string {
+  return key.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`);
+}
+
 export function jsx(
   tag: string | ((props: any) => string),
   props: Record<string, any> = {},
@@ -28,6 +32,7 @@ export function jsx(
 
     const propsString = Object.entries(props ?? {})
       .map(([key, value]) => {
+        key = toKebabCase(key);
         if (value === undefined) {
           return ""; // Remove attribute if the value is undefined
         }
