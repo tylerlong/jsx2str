@@ -115,3 +115,13 @@ Ref:
 
 - https://github.com/oven-sh/bun/issues/15759
 - https://github.com/tylerlong/bun-jsx-without-react-demo
+
+## Known issues
+
+It seems that TypeScript cannot infer `JSX`'s return type is string.
+
+You will need to manually convert `any` to `string`:
+
+```tsx
+const r = (<div></div>) as string;
+```
