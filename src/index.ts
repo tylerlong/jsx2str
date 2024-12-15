@@ -41,8 +41,8 @@ export function jsx(
     const propsString = Object.entries(props ?? {})
       .map(([key, value]) => {
         key = toKebabCase(key);
-        if (value === undefined) {
-          return ""; // Remove attribute if the value is undefined
+        if (key === "key" || value === undefined) {
+          return "";
         }
         return `${key}="${String(value).replace(/"/g, "&quot;")}"`;
       })
