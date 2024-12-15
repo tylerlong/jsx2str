@@ -2,7 +2,15 @@ export const options = {
   formatOutput: false, // Toggle for formatted output
 };
 
+const camelCaseKeys = new Set([
+  "viewBox",
+  "markerWidth",
+  "markerHeight",
+  "refX",
+  "refY",
+]);
 function toKebabCase(key: string): string {
+  if (camelCaseKeys.has(key)) return key; // Skip kebab-casing for specific keys
   return key.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`);
 }
 
@@ -35,9 +43,6 @@ export function jsx(
         key = toKebabCase(key);
         if (value === undefined) {
           return ""; // Remove attribute if the value is undefined
-        }
-        if (typeof value === "boolean") {
-          return value ? key : ""; // Boolean attributes
         }
         return `${key}="${String(value).replace(/"/g, "&quot;")}"`;
       })
