@@ -58,5 +58,5 @@ export function jsx(
 }
 
 export function jsxFrag(...children: any[]): string {
-  return children.map((c) => c.children.join("")).join("");
+  return children.map((c) => c.children.join("\n")).join("");
 }
