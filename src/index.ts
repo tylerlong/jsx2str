@@ -28,6 +28,9 @@ export function jsx(
 
     const propsString = Object.entries(props ?? {})
       .map(([key, value]) => {
+        if (value === undefined) {
+          return ""; // Remove attribute if the value is undefined
+        }
         if (typeof value === "boolean") {
           return value ? key : ""; // Boolean attributes
         }
