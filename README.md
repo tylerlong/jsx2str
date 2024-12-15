@@ -14,8 +14,8 @@ yarn add jsx2str
 index.tsx:
 
 ```tsx
-/** @jsx h */
-import { h } from "jsx2str";
+/** @jsx jsx */
+import { jsx } from "jsx2str";
 
 const name = "Tyler Liu";
 const r = (
@@ -36,7 +36,10 @@ node index.js
 Output:
 
 ```html
-<div>Hello, <span color="red">Tyler Liu</span></div>
+<div>
+  Hello,
+  <span color="red"> Tyler Liu </span>
+</div>
 ```
 
 Or you may run it directly using [tsx](https://www.npmjs.com/package/tsx):
@@ -45,7 +48,58 @@ Or you may run it directly using [tsx](https://www.npmjs.com/package/tsx):
 yarn tsx index.tsx
 ```
 
-## notes
+## jsxFrag
+
+`jsxFrag` allows you to use `<></>`.
+
+```tsx
+/** @jsx jsx */
+/** @jsxFrag jsxFrag */
+import { jsx, jsxFrag } from "jsx2str";
+
+const name = "Tyler Liu";
+const r = (
+  <>
+    Hello, <span color="red">{name}</span>
+  </>
+);
+console.log(r);
+```
+
+Output:
+
+```
+Hello, <span color="red">
+  Tyler Liu
+</span>
+```
+
+## format
+
+You may disable formatted output:
+
+```tsx
+/** @jsx jsx */
+import { jsx, options } from "./index";
+
+options.formatOutput = false;
+
+const name = "Tyler Liu";
+const r = (
+  <div>
+    Hello, <span color="red">{name}</span>
+  </div>
+);
+console.log(r);
+```
+
+Output:
+
+```
+<div>Hello, <span color="red">Tyler Liu</span></div>
+```
+
+## bun
 
 bun doesn't support JSX without React: https://github.com/oven-sh/bun/issues/15759, which is not good.
 But you can use [tsx](https://www.npmjs.com/package/tsx) with bun: `bun tsx index.tsx`

@@ -1,5 +1,7 @@
-/** @jsx h */
-import { h } from "./index";
+/** @jsx jsx */
+import { jsx, options } from "./index";
+
+options.formatOutput = false;
 
 const name = "Tyler Liu";
 const r = (
