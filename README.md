@@ -36,10 +36,7 @@ node index.js
 Output:
 
 ```html
-<div>
-  Hello,
-  <span color="red"> Tyler Liu </span>
-</div>
+<div>Hello, <span color="red">Tyler Liu</span></div>
 ```
 
 Or you may run it directly using [tsx](https://www.npmjs.com/package/tsx):
@@ -69,20 +66,18 @@ console.log(r);
 Output:
 
 ```
-Hello, <span color="red">
-  Tyler Liu
-</span>
+Hello, <span color="red">Tyler Liu</span>
 ```
 
 ## format
 
-You may disable formatted output:
+You may format output:
 
 ```tsx
 /** @jsx jsx */
 import { jsx, options } from "./index";
 
-options.formatOutput = false;
+options.formatOutput = true;
 
 const name = "Tyler Liu";
 const r = (
@@ -96,7 +91,12 @@ console.log(r);
 Output:
 
 ```
-<div>Hello, <span color="red">Tyler Liu</span></div>
+<div>
+  Hello,
+  <span color="red">
+    Tyler Liu
+  </span>
+</div>
 ```
 
 ## bun

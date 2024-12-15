@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, options } from "./index";
 
-options.formatOutput = false;
+options.formatOutput = true;
 
 const name = "Tyler Liu";
 const r = (

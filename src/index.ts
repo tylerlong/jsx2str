@@ -1,5 +1,5 @@
 export const options = {
-  formatOutput: true, // Toggle for formatted output
+  formatOutput: false, // Toggle for formatted output
 };
 
 export function jsx(
