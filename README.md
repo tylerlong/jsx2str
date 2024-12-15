@@ -101,5 +101,17 @@ Output:
 
 ## bun
 
-bun doesn't support JSX without React: https://github.com/oven-sh/bun/issues/15759, which is not good.
-But you can use [tsx](https://www.npmjs.com/package/tsx) with bun: `bun tsx index.tsx`
+If you use bun, you will need to create a `tsconfig.json` file with content:
+
+```json
+{
+  "compilerOptions": {
+    "jsx": "react"
+  }
+}
+```
+
+Ref:
+
+- https://github.com/oven-sh/bun/issues/15759
+- https://github.com/tylerlong/bun-jsx-without-react-demo
